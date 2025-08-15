@@ -1,21 +1,33 @@
-const compareObjects = require('../../src/06_objects/compareObjects');
+const compareObjects = require("../../src/06_objects/compareObjects");
 
-test('compares two objects with the same properties and values', () => {
+test("compares two objects with the same properties and values", () => {
   expect(compareObjects({ a: 1, b: 2 }, { a: 1, b: 2 })).toBe(true);
 });
 
-test('compares two objects with different properties', () => {
+test("compares two objects with different properties", () => {
   expect(compareObjects({ a: 1 }, { a: 1, b: 2 })).toBe(false);
 });
 
-test('compares two objects with the same properties but different values', () => {
+test("compares two objects with the same properties but different values", () => {
   expect(compareObjects({ a: 1, b: 2 }, { a: 1, b: 3 })).toBe(false);
 });
 
-test('compares two nested objects', () => {
-  expect(compareObjects({ a: { b: 1 }}, { a: { b: 1 }})).toBe(true);
+test("compares two nested objects", () => {
+  expect(compareObjects({ a: { b: 1 } }, { a: { b: 1 } })).toBe(true);
 });
 
-test('compares two nested objects with different values', () => {
-  expect(compareObjects({ a: { b: 1 }}, { a: { b: 2 }})).toBe(false);
+test("compares two nested objects with different values", () => {
+  expect(compareObjects({ a: { b: 1 } }, { a: { b: 2 } })).toBe(false);
+});
+
+test("compares two nested objects with different keys", () => {
+  expect(compareObjects({ a: { b: 1 } }, { a: { c: 1 } })).toBe(false);
+});
+
+test("compares two empty objects", () => {
+  expect(compareObjects({}, {})).toBe(true);
+});
+
+test("compares two objects with different properties (reversed)", () => {
+  expect(compareObjects({ a: 1, b: 2 }, { a: 1 })).toBe(false);
 });
