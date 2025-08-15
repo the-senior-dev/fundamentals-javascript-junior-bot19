@@ -6,7 +6,27 @@
  * @returns {Array}
  */
 function reverseArray(arr) {
-    // Your code here
+  // Your code here
+
+  // get length of array
+  // const arrLength = arr.length;
+
+  // make another array
+  const revArr = [];
+
+  // count down & push items into new array
+  let i = arr.length - 1;
+
+  while (i >= 0) {
+    const item = arr[i];
+
+    revArr.push(item);
+
+    // finish, next i down
+    i--;
+  }
+
+  return revArr;
 }
 
 module.exports = reverseArray;

@@ -8,8 +8,16 @@
  * If n is negative, your function should return 0.
  **/
 function sumFirstNNumbers(n) {
-    // Your code here
-}
+  // Your code here
 
+  if (typeof n !== "number") {
+    console.log("numbers only");
+    return;
+  }
+
+  if (n <= 0) return 0;
+
+  return n + sumFirstNNumbers(n - 1);
+}
 
 module.exports = sumFirstNNumbers;
